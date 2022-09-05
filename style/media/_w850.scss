@@ -1,0 +1,40 @@
+@media (max-width: 850px) {
+    .page {
+
+        &__header {
+            padding-top: 8px;
+            row-gap: 8px;
+        }
+
+        &__title {
+            @include font(27px, 30px, 400);
+        }
+
+        &__menu-item {
+            &_disabled {
+                display: none;
+            }
+        }
+    }
+
+    .rules {
+        &__title {
+            @include font(27px, 30px, 400);
+        }
+
+        &__columns {
+            grid-template-columns: 300px;
+            row-gap: 16px;
+        }
+
+        &__img {
+            width: 300px;
+        }
+
+        &__list {
+            padding-left: 32px;
+            width: auto;
+        }
+    }
+
+}

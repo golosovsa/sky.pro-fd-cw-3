@@ -1,0 +1,173 @@
+/*
+    styles from figma project
+
+    link to the source https://www.figma.com/community/file/1047071797355688164
+    author: https://www.figma.com/@lamigenius
+
+    Created by golosov_sa@mail.ru aka grm
+    Course work №3 (study project)
+*/
+
+@import "common/reset";
+@import "common/fonts";
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: space-between;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #1D3253;
+
+    &__header {
+        min-height: 90px;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+    }
+
+    &__logo {
+        user-select: none;
+    }
+
+    &__title {
+        @include font(72px, 85px, 400);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        display: flex;
+        flex-flow: row wrap;
+
+        &_rock {
+            color: #C3B7B7;
+        }
+
+        &_paper {
+            color: #FFFFFF;
+        }
+
+        &_scissors {
+            color: #E92323;
+        }
+    }
+
+    &__nav ul li {
+        list-style-type: none;
+    }
+
+    &__menu {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__menu-item {
+        @include font(24px, 28px, 400);
+        color: #ffffff;
+
+        width: 180px;
+        padding: 8px;
+        margin-left: 4px;
+        margin-right: 4px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), #1D3253;
+        border-radius: 20px;
+        cursor: pointer;
+        text-align: center;
+
+        &_disabled {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #1D3253;
+            color: #a0a0a0;
+        }
+
+        &_disabled:hover {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #1D3253 !important;
+        }
+
+        &_active {
+            cursor: default;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), #1D3253;
+        }
+    }
+
+    &__menu-item:hover {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), #1D3253;
+    }
+
+    &__footer {
+        background: rgba($color: #172842, $alpha: .8);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding-top: 8px;
+    }
+
+    &__footer-link {
+        @include font(18px, 21px, 400);
+        color: #ffffff;
+        align-self: center;
+        text-decoration: none;
+    }
+
+    &__info {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 8px;
+
+        &_hidden {
+            display: none;
+        }
+    }
+
+    &__info-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__info-title {
+        @include font(18px, 21px, 600);
+        color: #ffffff;
+    }
+
+    &__info-link,
+    &__info-link:visited {
+        @include font(18px, 21px, 400);
+        color: #ffffff;
+        // text-decoration: none;
+
+        transition: color 0.2s ease-out;
+    }
+    
+    &__info-link:focus,
+    &__info-link:active, 
+    &__info-link:hover {
+        color: #a0a0a0;
+    }
+
+    &__body {
+        height: 100%;
+        padding-bottom: 30px;
+    }
+}
+
+@import "pages/rules";
+
+@import "media/w1700";
+@import "media/w1200";
+@import "media/w850";
