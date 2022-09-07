@@ -8,28 +8,89 @@
 
     <link rel="stylesheet" href="style/style.css">
     <script src="js/page.js"></script>
+    <script src="js/page/footer-info.js"></script>
 </head>
 <body class="page">
     
     <header class="page__header">
-        <h1 class="page__title">
-            <span>Ка</span><span>Но</span><span>Бу</span>
-        </h1>
+        <div class="page__title">
+            <div class="page__logo"></div>
+            <div class="page__logo-text">GRM</div>
+            <h1 class="page__title-text">Games</h1>
+        </div>
+        <div class="page__menu">
+            <nav class="menu">
+                <a href="#" class="menu__item menu__item_rules menu__item_active">Rules</a>
+                <a href="#" class="menu__item menu__item_login">Login</a>
+                <a href="#" class="menu__item menu__item_lobby menu__item_disabled">Lobby</a>
+                <a href="#" class="menu__item menu__item_start menu__item_disabled">Start</a>
+            </nav>
+        </div>
     </header>
 
     <main class="page__main">
-        <div class="page__block-main page__block-main_one">
+        <section class="page__block-main page__block-main_one">
+            <div class="rules-block-one">
+                <div class="rules-block-one__element rules-block-one__element_rock">
+                    <img class="rules-block-one__image rules-block-one__image_rock" src="img/rock.svg" alt="Rock">
+                </div>
+                <div class="rules-block-one__element rules-block-one__element_paper">
+                    <img class="rules-block-one__image rules-block-one__image_paper" src="img/paper.svg" alt="Paper">
+                </div>  
 
-        </div>
-        <div class="page__block-main page__block-main_two">
-            
-        </div>
+                <a class="rules-block-one__button rules-block-one__button_start">
+                    <img class="rules-block-one__image rules-block-one__image_play" src="img/ui/play.svg" alt="Play">
+                </a>
+
+                <div class="rules-block-one__element rules-block-one__element_scissors">
+                    <img class="rules-block-one__image rules-block-one__image_scissors" src="img/scissors.svg" alt="Scissors">
+                </div>
+            </div>
+        </section>
+        <section class="page__block-main page__block-main_two">
+            <div class="rules-block-two">
+                <h2 class="rules-block-two__title">
+                    <span class="rules-block-two__title_rock">rock, </span>
+                    <span class="rules-block-two__title_paper">paper, </span>
+                    <span class="rules-block-two__title_scissors">scissors.</span>
+                </h2>
+                <ol class="rules-block-two__list">
+                    <li class="rules-block-two__list-item">Rock breaks scissors</li>
+                    <li class="rules-block-two__list-item">Scissors cuts paper</li>
+                    <li class="rules-block-two__list-item">Paper covers rock</li>
+                </ol>
+                <p class="rules-block-two__text-question">
+                    Want to have <span>fun?</span>
+                </p>
+                <div class="rules-block-two__buttons">
+                    <a href="#" class="rules-block-two__button rules-block-two__button_lobby">Lobby</a>
+                    <a href="#" class="rules-block-two__button rules-block-two__button_start">Start</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="page__footer">
-        <div class="page__footer-more">
-            <a href="#" class="page__footer-link page__footer-link_more page__footer-link_close">Обо мне</a>
-
+        <div class="footer-info">
+            <div class="footer-info__panel">
+                <a href="#" class="footer-info__button footer-info__button_show">!</a>
+                <a href="#" class="footer-info__button footer-info__button_close footer-info__button_hidden">X</a>
+            </div>
+            <div class="footer-info__content footer-info__content_hidden">
+                <p class="footer-info__text">Study project, coursework #3</p>
+                <p class="footer-info__text">
+                    <b>Design: </b><a href="https://www.figma.com/community/file/1047071797355688164">Rock Paper Scissors</a> <b>Author: </b><a href="https://www.figma.com/@lamigenius">lamigenius</a>
+                </p>
+                <p class="footer-info__text">
+                    <b>html, scss, js:</b> <a href="mailto:golosov_sa@mail.ru">Golosov SA (grm)</a>
+                </p>
+                <p class="footer-info__text">
+                    <b>My github: </b> <a href="https://github.com/golosovsa/">golosovsa</a>
+                </p>
+                <p class="footer-info__text">
+                    <b>Project github: </b> <a href="https://github.com/golosovsa/sky.pro-fd-cw-3">golosovsa/sky.pro-fd-cw-3</a>
+                </p>
+            </div>
         </div>
     </footer>
 

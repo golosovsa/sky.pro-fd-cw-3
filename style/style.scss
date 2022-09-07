@@ -1,19 +1,23 @@
 @import "common/reset";
 @import "common/fonts";
 
+@import "page/header";
+@import "page/menu";
+@import "page/footer-info";
+
+@import "screens/rules";
+
 .page {
     height: 100vh;
     width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 10vh auto 5vh;
-
-    &__header {
-        border: 1px solid red;
-    }
+    background: #1D3253;
 
     &__main {
-        background-color: pink;
         display: grid;
 
         &_one-column-two-rows{
@@ -28,11 +32,15 @@
     }
 
     &__block-main {
-        border: 1px dotted darkblue;
         box-sizing: border-box;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
     
         &_one {
-
+            
         }
 
         &_two {
@@ -41,43 +49,7 @@
     }
 
     &__footer {
-        border: 1px solid green;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100vw;
-        height: 5vh;
         box-sizing: border-box;
-    }
-
-    &__footer-more {
-        width: 100%;
-        box-sizing: border-box;
-        background-color: yellow;
-    }
-
-    &__footer-link {
-        
-        &_more {
-            display: block;
-            text-align: center;
-        }
-
-        &_close::after {
-            width: 2vw;
-            height: 2vh;
-            border-radius: calc(min(max(2vw, 2vh), 5vh) / 2);
-            content: "X";
-            border: 1px solid black;
-            position: absolute;
-            right: 1vw;
-            top: 1vh;
-            display: flex;
-            flex-flow: column nowrap;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        }
     }
 
     &__title {

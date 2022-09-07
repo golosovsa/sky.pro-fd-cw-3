@@ -1,0 +1,129 @@
+.rules-block-one {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(3.2vh, 3.2vw));
+    grid-template-rows: repeat(10, minmax(3.2vh, 3.2vw));
+    padding: 1vh 1vw;
+
+    &__element {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding: 25%;
+        border-radius: 50%;
+        background: rgba(253, 253, 253, 0.9);
+
+        &_rock {
+            grid-area: 1 / 1 / 5 / 5;
+        }
+        &_paper {
+            grid-area: 1 / 7 / 5 / 11;
+        }
+        &_scissors {
+            grid-area: 7 / 4 / 11 / 8;
+        }
+    }
+
+    &__button {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding: 25%;
+        border-radius: 25%;
+        background-color: #0D6AF4;
+        transition: box-shadow 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out;
+
+        &_start {
+            grid-area: 4 / 4 / 7 / 8;
+            z-index: 1;
+        }
+    }
+
+    &__button:hover {
+        box-shadow: 0 0 0.5vw 0.5vh rgba($color: #000000, $alpha: 0.6);
+        transform: scale(1.03);
+    }
+    
+}
+
+.rules-block-two {
+
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    row-gap: 4vh;
+    justify-content: center;
+    align-items: stretch;
+    align-content: flex-start;
+
+    &__title {
+        @include font(min(6vw, 6vh), min(6.2vw, 6.2vh), 400);
+        width: min(50vw, 50vh);
+        text-transform: uppercase;
+
+        &_rock {
+            color: #C3B7B7;
+        }
+
+        &_paper {
+            color: #FFFFFF;
+        }
+
+        &_scissors {
+            color: #E92323;
+        }
+    }
+
+    &__list {
+        @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
+        color: #000000;
+        background-color: #E8EAEE;
+        border-radius: max(1vw, 1vh);
+        padding-left: min(6vw, 6vh);
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    }
+
+    &__text-question {
+        @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
+        color: #ffffff;
+    }
+
+    &__text-question span {
+        color: #F616D3;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 2vw;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+    }
+
+    &__button,
+    &__button:link,
+    &__button:visited {
+        @include font(min(8vw, 8vh), min(8.2vw, 8.2vh), 400);
+        text-decoration: none;
+        color: #ffffff;
+        background: #2C7AF0;
+        border-radius: 1vh;
+        transition: box-shadow 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out;
+        width: fit-content;
+        padding: 1vh 1vw;
+    }
+
+    &__button:hover {
+        box-shadow: 0 0 0.5vw 0.5vh rgba($color: #000000, $alpha: 0.6);
+        transform: scale(1.03);
+    }
+}

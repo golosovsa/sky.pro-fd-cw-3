@@ -1,0 +1,50 @@
+.page {
+
+    &__header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: stretch;
+        justify-content: space-between;
+        align-content: stretch;
+    }
+
+    &__title {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1vh;
+        column-gap: 0.5vh;
+    }
+
+    &__logo {
+        width: 7vh;
+        height: 7vh;
+        border-radius: 3.5vh;
+        background: #E2CECE;
+        border: 0.5vh solid #741D1D;
+        box-shadow: 0 0.5vh 0.5vh rgba(0, 0, 0, 0.25);
+        filter: blur(0.4vh);
+    }
+
+    &__logo-text {
+        @include font(3vh, 1vh, 700);
+        color: #C02F2F;
+
+        position: absolute;
+        left: 1.5vh;
+        top: 4.5vh;
+    }
+
+    &__title-text {
+        @include font(3vh, 1vh, 700);
+        color: #FFFFFF;
+    }
+
+    &__menu {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+}
