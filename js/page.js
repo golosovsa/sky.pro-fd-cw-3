@@ -1,6 +1,8 @@
 class Page {
-    constructor(){
+    constructor(userCallBack){
+        this.userCallBack = userCallBack;
         this.main = undefined;
+        this.menu = undefined;
         this.footerInfo = undefined;
 
         this.init = this.init.bind(this);
@@ -12,6 +14,7 @@ class Page {
     init() {
         this.main = document.querySelector(".page__main");
         this.footerInfo = new FooterInfo();
+        this.menu = new Menu(this.userCallBack);
         
         window.addEventListener("resize", this.changeContentOrientation, true);
         
