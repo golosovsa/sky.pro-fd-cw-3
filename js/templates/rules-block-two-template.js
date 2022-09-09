@@ -42,38 +42,38 @@ const rulesBlockTwoTemplate = {
                     cls: ["rules-block-two__list-item", ],
                     content: ["Paper covers rock", ],
                 },
+            ],
+        },
+        {
+            tag: "p",
+            cls: ["rules-block-two__text-question", ],
+            content: [
+                "Want to have ",
                 {
-                    tag: "p",
-                    cls: ["rules-block-two__text-question", ],
-                    content: [
-                        "Want to have ",
-                        {
-                            tag: "span",
-                            content: ["fun?"],
-                        },
-                    ],
+                    tag: "span",
+                    content: ["fun?"],
+                },
+            ],
+        },
+        {
+            tag: "div",
+            cls: ["rules-block-two__buttons", ],
+            content: [
+                {
+                    tag: "a",
+                    cls: ["rules-block-two__button", "rules-block-two__button_lobby", ],
+                    attrs: {
+                        href: "#"
+                    },
+                    content: ["lobby", ],
                 },
                 {
-                    tag: "div",
-                    cls: ["rules-block-two__buttons", ],
-                    content: [
-                        {
-                            tag: "a",
-                            cls: ["rules-block-two__button", "rules-block-two__button_lobby", ],
-                            attrs: {
-                                href: "#"
-                            },
-                            content: ["lobby", ],
-                        },
-                        {
-                            tag: "a",
-                            cls: ["rules-block-two__button", "rules-block-two__button_start", ],
-                            attrs: {
-                                href: "#"
-                            },
-                            content: ["start", ],
-                        },
-                    ],
+                    tag: "a",
+                    cls: ["rules-block-two__button", "rules-block-two__button_start", ],
+                    attrs: {
+                        href: "#"
+                    },
+                    content: ["start", ],
                 },
             ],
         },

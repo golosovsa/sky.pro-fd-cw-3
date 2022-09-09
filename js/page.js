@@ -1,7 +1,10 @@
 class Page {
-    constructor(userCallBack){
+    constructor(userCallBack, onLoadCallBack){
         this.userCallBack = userCallBack;
+        this.onLoadCallBack = onLoadCallBack;
         this.main = undefined;
+        this.blockOne = undefined;
+        this.blockTwo = undefined;
         this.menu = undefined;
         this.footerInfo = undefined;
 
@@ -11,14 +14,25 @@ class Page {
         document.addEventListener("DOMContentLoaded", this.init);
     }
 
+    get firstBlock() {
+        return this.blockOne;
+    }
+
+    get secondBlock() {
+        return this.blockTwo;
+    }
+
     init() {
         this.main = document.querySelector(".page__main");
+        this.blockOne = this.main.querySelector(".page__block-main_one");
+        this.blockTwo = this.main.querySelector(".page__block-main_two");
         this.footerInfo = new FooterInfo();
         this.menu = new Menu(this.userCallBack);
         
         window.addEventListener("resize", this.changeContentOrientation, true);
         
         this.changeContentOrientation();
+        this.onLoadCallBack();
     }
 
     changeContentOrientation() {

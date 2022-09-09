@@ -6,6 +6,7 @@
 @import "page/footer-info";
 
 @import "screens/rules";
+@import "screens/login";
 
 .page {
     height: 100vh;
@@ -38,14 +39,6 @@
         align-content: center;
         justify-content: center;
         align-items: center;
-    
-        &_one {
-            
-        }
-
-        &_two {
-            
-        }
     }
 
     &__footer {
