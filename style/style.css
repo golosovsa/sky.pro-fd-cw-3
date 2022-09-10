@@ -374,6 +374,9 @@
   margin-right: 2vw;
   box-sizing: border-box;
 }
+.login-block-two__form-item_row {
+  flex-flow: row nowrap;
+}
 .login-block-two__form-label {
   font-family: "Roboto";
   font-size: min(3vw, 3vh);
@@ -410,11 +413,104 @@
   cursor: pointer;
   align-self: center;
 }
+.login-block-two__form-button_hidden {
+  display: none;
+}
 .login-block-two__form-button:hover {
   box-shadow: 0 0 0.5vw 0.5vh rgba(0, 0, 0, 0.6);
   transform: scale(1.03);
 }
 
+.lobby-block-one {
+  width: 90%;
+  height: 80%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  background: #172842;
+  border-radius: max(1vw, 1vh);
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.lobby-block-two {
+  width: 90%;
+  height: 80%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  background: #172842;
+  border-radius: max(1vw, 1vh);
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+  z-index: 7;
+  width: calc(min(9vw, 9vh) + 1vh);
+  height: calc(min(9vw, 9vh) + 1vh);
+  stroke-width: min(1vw, 1vh);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.spinner__path {
+  stroke: hsl(210deg, 70%, 75%);
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite;
+}
+.spinner__container {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: calc(min(9vw, 9vh) + 1vh);
+  height: calc(min(9vw, 9vh) + 1vh);
+  box-sizing: border-box;
+}
+.spinner__container_hidden {
+  display: none;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
 .page {
   height: 100vh;
   width: 100vw;

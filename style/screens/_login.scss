@@ -55,6 +55,10 @@
         margin-left: 2vw;
         margin-right: 2vw;
         box-sizing: border-box;
+
+        &_row {
+            flex-flow: row nowrap;
+        }
     }
 
     &__form-label {
@@ -89,6 +93,10 @@
         cursor: pointer;
 
         align-self: center;
+
+        &_hidden {
+            display: none;
+        }
     }
 
 

@@ -33,7 +33,7 @@ const loginBlockTwoTemplate = {
                 },
                 {
                     tag: "p",
-                    cls: ["login-block-two__form-item", ],
+                    cls: ["login-block-two__form-item", "login-block-two__form-item_row", ],
                     content: [
                         {
                             tag: "input",
@@ -43,12 +43,8 @@ const loginBlockTwoTemplate = {
                                 value: "Go!",
                             },
                         },
+                        spinnerTemplate,
                     ],
-                },
-                {
-                    tag: "p",
-                    cls: ["login-block-two__form-item login-block-two__form-item_hidden"],
-                    content: [spinnerTemplate],
                 },
             ],
         },

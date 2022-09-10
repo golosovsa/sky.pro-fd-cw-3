@@ -3,12 +3,14 @@ window.application = {
     token: undefined,
     user: undefined,
     enemy: undefined,
-    page: new Page(idle, () => { window.application.renderScreen("login"); }),
+    page: new Page(idle, () => { window.application.renderScreen("lobby"); }),
     blocks: {
         "rules-block-one": new RulesBlockOne(idle),
         "rules-block-two": new RulesBlockTwo(idle),
         "login-block-one": new LoginBlockOne(idle),
         "login-block-two": new LoginBlockTwo(idle),
+        "lobby-block-one": new LobbyBlockOne(idle),
+        "lobby-block-two": new LobbyBlockTwo(idle),
     },
     screens: {
         rules: function() {
@@ -43,6 +45,17 @@ window.application = {
 
             window.application.renderBlock("login-block-one", page.firstBlock);
             window.application.renderBlock("login-block-two", page.secondBlock);
+        },
+
+        lobby: function() {
+            const page = window.application.page
+            const menu = page.menu;
+
+            menu.active("lobby");
+            menu.enable("lobby").enable("start");
+
+            window.application.renderBlock("lobby-block-one", page.firstBlock);
+            window.application.renderBlock("lobby-block-two", page.secondBlock);
         }
     },
     renderScreen: function(screenName) {

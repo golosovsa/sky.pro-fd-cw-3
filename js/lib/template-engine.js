@@ -32,6 +32,8 @@
  * 
  */
 
+const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+
 function appendClassToElementNode(elementNode, clsArray) {
     if (!Array.isArray(clsArray)) {
         throw "Property cls must be an array";
@@ -102,11 +104,83 @@ function appendContentToElementNode(elementNode, contentArray) {
     elementNode.appendChild(fragment);
 }
 
+function appendContentToSVGElementNode(elementNode, contentArray) {
+    if (!Array.isArray(contentArray)) {
+        throw "Property content must be an array";
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    contentArray.forEach((content, index) => {
+        
+        if (["string", "number", "boolean"].includes(typeof content)) {
+            fragment.appendChild(document.createTextNode(content));
+            return
+        }
+        
+        if (typeof content === "object") {
+        
+            if (content.tag === undefined) {
+                throw `Tag name not defined in content at index ${index}`;
+            }
+        
+            if (typeof content.tag !== "string") {
+                throw `The tag name must be a string type in content at index ${index}`;
+            }
+
+
+            try {
+                fragment.appendChild(templateSVGEngineRecursive(content));
+            } catch (exp) {
+                throw `(content index ${index}) ${exp}`;
+            }
+
+            return;
+        }
+
+        throw `Unsupported content type at index ${index}`
+    });
+
+    elementNode.appendChild(fragment);
+}
+
+function templateSVGEngineRecursive(templateNode) {
+    try {
+
+    if (templateNode.disabled) {
+        return document.createTextNode("");
+    }
+
+    const elementNode = document.createElementNS(SVG_NAMESPACE, templateNode.tag);
+
+    if (templateNode.cls) {
+        appendClassToElementNode(elementNode, templateNode.cls);
+    }
+
+    if (templateNode.attrs) {
+        appendAttributesToElementNode(elementNode, templateNode.attrs);
+    }
+
+    if (templateNode.content) {
+        appendContentToSVGElementNode(elementNode, templateNode.content);
+    }
+
+    return elementNode;
+
+    } catch (exp) {
+        throw `${templateNode.tag} -> ${exp}`
+    }
+}
+
 function templateEngineRecursive(templateNode) {
     try {
 
         if (templateNode.disabled) {
             return document.createTextNode("");
+        }
+
+        if (templateNode.tag === "svg") {
+            return templateSVGEngineRecursive(templateNode);
         }
 
         const elementNode = document.createElement(templateNode.tag);
