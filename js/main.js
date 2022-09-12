@@ -3,7 +3,24 @@ window.application = {
     token: undefined,
     user: undefined,
     enemy: undefined,
-    page: new Page(idle, () => { window.application.renderScreen("lobby"); }),
+    page: new Page(idle, () => { 
+        window.application.renderScreen("lobby");
+
+        window.application.dao.playerList.getAll().then((players) => {
+            window.application.blocks["lobby-block-one"].updatePlayers(players.data);
+        });
+    }),
+    
+    dao: {
+        ping: pingHandle,
+        login: loginHandle,
+        playerStatus: playerStatusHandle,
+        startGame: startGameHandle,
+        gameStatus: gameStatusHandle,
+        play: playHandle,
+        playerList: playerListHandle,
+    },
+    
     blocks: {
         "rules-block-one": new RulesBlockOne(idle),
         "rules-block-two": new RulesBlockTwo(idle),
@@ -69,4 +86,23 @@ window.application = {
 
 function idle({from, to, data=undefined}) {
     console.log(`from = ${from}, to = ${to}, data = ${data}`);
+    switch (from) {
+        case "lobby":
+            
+            switch (to) {
+                case "lobby":
+                    
+                    window.application.blocks["lobby-block-two"].showPlayer(data);
+
+                    break;
+            
+                default:
+                    break;
+            }
+
+            break;
+    
+        default:
+            break;
+    }
 }

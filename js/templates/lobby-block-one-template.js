@@ -18,7 +18,7 @@ const lobbyBlockOneTemplate = {
                     attrs: {
                         href: "#",
                     },
-                    content: ["name, "],
+                    content: ["name"],
                 },
                 {
                     tag: "a",
@@ -26,7 +26,7 @@ const lobbyBlockOneTemplate = {
                     attrs: {
                         href: "#",
                     },
-                    content: ["wins, "],
+                    content: ["wins"],
                 },
                 {
                     tag: "a",
@@ -34,7 +34,7 @@ const lobbyBlockOneTemplate = {
                     attrs: {
                         href: "#",
                     },
-                    content: ["loses."],
+                    content: ["loses"],
                 },
             ],
         },

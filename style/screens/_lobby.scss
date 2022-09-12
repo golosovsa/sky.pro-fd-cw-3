@@ -7,6 +7,64 @@
     margin-right: 1vw;
     background: #172842;
     border-radius: max(1vw, 1vh);
+    padding: 1vh 1vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min(8vw, 8vh) min(6vw, 6vh) calc(100% - min(14vw, 14vh) - 3vh);
+
+    &__title {
+        @include font(min(6vw, 6vh), min(6.2vw, 6.2vh), 400);
+        color: #E8EAEE;
+        align-self: center;
+    }
+
+    &__sort-by {
+        @include font(min(3vw, 3vh), min(3.2vw, 3.2vh), 400);
+        color: #8F8985;
+
+        display: flex; 
+        flex-flow: row nowrap;
+        column-gap: 2vw;
+
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__sort-link,
+    &__sort-link:link,
+    &__sort-link:visited {
+        padding: 0.5vh 1vw;
+        background: #8F8985;
+        color: #000000;
+        border-radius: calc(min(3vw, 3vh) + 1vh);
+        text-decoration: none;
+        transition: background-color 0.2s linear;
+    }
+
+    &__sort-link{
+        &_active {
+            background: #E8EAEE !important;
+        }
+    }
+
+    &__sort-link:hover {
+        background: #E8EAEE;
+    }
+
+    &__user-list {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: flex-start;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: min(1vh, 1vw);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-top: 2vh;
+
+        scrollbar-width: 32px;
+    }
 }
 
 .lobby-block-two {
@@ -16,5 +74,47 @@
     margin-right: 1vw;
     margin-left: 1vw;
     margin-right: 1vw;
-    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
+    justify-items: center;
+
+    &__player-detailed {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        align-content: flex-start;
+        justify-content: center;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 2vw;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+    }
+
+    &__button,
+    &__button:link,
+    &__button:visited {
+        @include font(min(7vw, 7vh), min(7.2vw, 7.2vh), 400);
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: #2C7AF0;
+        border-radius: 1vh;
+        transition: box-shadow 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out;
+        width: fit-content;
+        padding: 1vh 1vw;
+        align-self: center;
+    }
+
+    &__button:hover {
+        box-shadow: 0 0 0.5vw 0.5vh rgba($color: #000000, $alpha: 0.6);
+        transform: scale(1.03);
+    }
 }

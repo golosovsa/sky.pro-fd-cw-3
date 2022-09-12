@@ -1,0 +1,96 @@
+.player-detailed {
+    width: max(40vh, 40vw);
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+
+    &__title {
+        @include font(min(6vw, 6vh), min(6.2vw, 6.2vh), 400);
+        width: 60%;
+        color: #E8EAEE;
+        align-self: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        align-self: center;
+    }
+
+    &__wins-and-loses {
+        @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
+
+        display: flex;
+        flex-flow: row nowrap;
+        gap: min(10vh, 10vw);
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        white-space: nowrap;
+    }
+
+    &__wins {
+        color: green;
+    }
+
+    &__loses {
+        color: red;
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(10, minmax(1.5vh, 1.5vw));
+        grid-template-rows: repeat(10, minmax(1.5vh, 1.5vw));
+    }
+
+    &__element {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding: 25%;
+        border-radius: 50%;
+        background: rgba(253, 253, 253, 0.9);
+        position: relative;
+
+        &_rock {
+            grid-area: 1 / 1 / 5 / 5;
+        }
+        &_paper {
+            grid-area: 1 / 7 / 5 / 11;
+        }
+        &_scissors {
+            grid-area: 7 / 4 / 11 / 8;
+        }
+    }
+
+    &__counter {
+        @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
+        width: min(5vw, 5vh);
+        height: min(5vw, 5vh);
+        border-radius: 50%;
+        background-color: green;
+        display: flex;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        &_rock {
+
+        }
+
+        &_paper {
+
+        }
+
+        &_scissors {
+
+        }
+    }
+}

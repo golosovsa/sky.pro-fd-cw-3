@@ -1,0 +1,14 @@
+{
+    "status": "ok",
+    "game-status": {
+      "status": "waiting-for-start",
+      "enemy": {
+          "login": "ВладБумага",
+          "wins": 47,
+          "loses": 33,
+          "rocks": 22,
+          "papers": 202,
+          "scissors": 13
+       }
+    }
+}

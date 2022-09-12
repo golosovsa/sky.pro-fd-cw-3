@@ -1,11 +1,11 @@
 class BaseDAO {
-    constructor(url, handle, model=Object) {
+    constructor(url, handle, model=undefined) {
         this.uri = url + handle;
         this.model = model;
     }
 
     async _get(params) {
-        const parameters = URLSearchParams(params).toString();
+        const parameters = new URLSearchParams(params).toString();
         const fullHandle = this.uri + '?' + parameters;
 
         const response = await fetch(fullHandle, {
@@ -21,7 +21,7 @@ class BaseDAO {
     async getAll(params) {
         try {
             const data = await this._get(params);
-            const models = data.map(item => new this.model(...item));
+            const models = (this.model !== undefined) ? data.map(item => new this.model(item)) : data;
             return {
                 status: "ok",
                 data: models,
@@ -37,7 +37,7 @@ class BaseDAO {
     async getOne() {
         try {
             const data = await this._get(params);
-            const model = this.model(...data);
+            const model = (this.model !== undefined) ? new this.model(data) : data;
             return {
                 status: "ok",
                 data: model,

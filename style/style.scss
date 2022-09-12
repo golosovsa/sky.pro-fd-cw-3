@@ -9,6 +9,9 @@
 @import "screens/login";
 @import "screens/lobby";
 
+@import "entities/player";
+@import "entities/detailed-player";
+
 @import "widgets/spinner";
 
 .page {
@@ -18,20 +21,21 @@
     max-width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh auto 5vh;
+    grid-template-rows: 10vh 85vh 5vh;
     background: #1D3253;
 
     &__main {
         display: grid;
+        overflow: hidden;
 
         &_one-column-two-rows{
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 40vh 40vh;
         }
 
         &_two-columns-one-row{
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
+            grid-template-rows: 85vh;
         }
     }
 
