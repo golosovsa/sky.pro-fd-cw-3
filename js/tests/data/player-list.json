@@ -1,0 +1,91 @@
+[
+    {
+        "login": "player_1",
+        "wins": "10",
+        "loses": "0",
+        "rocks" : "6",
+        "papers": "3",
+        "scissors": "1"
+    },
+    {
+        "login": "player_2_and_long_name with spaces",
+        "wins": "9",
+        "loses": "1",
+        "rocks" : "3",
+        "papers": "6",
+        "scissors": "1"
+    },
+    {
+        "login": "player_3",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_4",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_5",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_6",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_7",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_8",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_9",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "player_10",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5"
+    },
+    {
+        "login": "user",
+        "wins": "8",
+        "loses": "2",
+        "rocks" : "3",
+        "papers": "2",
+        "scissors": "5",
+        "you": "true"
+    }
+]

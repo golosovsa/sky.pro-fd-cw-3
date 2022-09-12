@@ -426,10 +426,10 @@
   height: 80%;
   margin-left: 1vw;
   margin-right: 1vw;
-  background: #172842;
-  border-radius: max(1vw, 1vh);
   margin-left: 1vw;
   margin-right: 1vw;
+  background: #172842;
+  border-radius: max(1vw, 1vh);
 }
 
 .lobby-block-two {
@@ -437,10 +437,9 @@
   height: 80%;
   margin-left: 1vw;
   margin-right: 1vw;
-  background: #172842;
-  border-radius: max(1vw, 1vh);
   margin-left: 1vw;
   margin-right: 1vw;
+  border: 1px solid black;
 }
 
 .spinner {
@@ -455,7 +454,7 @@
   top: 0;
 }
 .spinner__path {
-  stroke: hsl(210deg, 70%, 75%);
+  stroke: #93BFEC;
   stroke-linecap: round;
   -webkit-animation: dash 1.5s ease-in-out infinite;
           animation: dash 1.5s ease-in-out infinite;
