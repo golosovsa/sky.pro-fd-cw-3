@@ -426,8 +426,6 @@
   height: 80%;
   margin-left: 1vw;
   margin-right: 1vw;
-  margin-left: 1vw;
-  margin-right: 1vw;
   background: #172842;
   border-radius: max(1vw, 1vh);
   padding: 1vh 1vw;
@@ -535,6 +533,165 @@
   transform: scale(1.03);
 }
 
+.game-block-one {
+  width: 90%;
+  height: 90%;
+  padding: 1vh 1vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min(6vw, 6vh) 1fr min(6vw, 6vh);
+}
+.game-block-one__scores {
+  font-family: "Roboto";
+  font-size: min(3vw, 3vh);
+  line-height: min(3.2vw, 3.2vh);
+  font-weight: 400;
+  color: #ffffff;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.game-block-one__text {
+  text-transform: capitalize;
+}
+.game-block-one__wins-and-loses {
+  font-family: "Roboto";
+  font-size: min(2.5vw, 2.5vh);
+  line-height: min(2.6vw, 2.6vh);
+  font-weight: 400;
+  position: absolute;
+  left: 0;
+  bottom: max(-5vw, -5vh);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: min(2vw, 2vh);
+}
+.game-block-one__wins {
+  background: #31A559;
+  min-width: min(3vw, 3vh);
+  height: min(3vw, 3vh);
+  border-radius: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+}
+.game-block-one__loses {
+  background: #B13232;
+  min-width: min(3vw, 3vh);
+  height: min(3vw, 3vh);
+  border-radius: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+}
+.game-block-one__field {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(3vh, 3vw));
+  grid-template-rows: repeat(10, minmax(3vh, 3vw));
+  align-self: center;
+  justify-self: center;
+}
+.game-block-one__element {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  padding: 25%;
+  border-radius: 50%;
+  background: #8F8985;
+  position: relative;
+}
+.game-block-one__element_rock {
+  grid-area: 1/1/5/5;
+}
+.game-block-one__element_paper {
+  grid-area: 1/7/5/11;
+}
+.game-block-one__element_scissors {
+  grid-area: 7/4/11/8;
+}
+.game-block-one__element_center {
+  grid-area: 3/4/7/8;
+  position: relative;
+  left: 0;
+  top: min(1.5vh, 1.5vw);
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.game-block-one__element_selected {
+  background-color: #E8EAEE;
+}
+.game-block-one__title {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: min(3vw, 3vh);
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+.game-block-one__title-text {
+  font-family: "Roboto";
+  font-size: min(6vw, 6vh);
+  line-height: min(6.2vw, 6.2vh);
+  font-weight: 400;
+  color: #ffffff;
+}
+.game-block-one__waiter {
+  width: min(9vw, 9vh);
+  height: min(6vw, 6vh);
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+}
+.game-block-one__waiter-item {
+  width: min(2vw, 2vh);
+  height: min(2vw, 2vh);
+  background-color: #ffffff;
+}
+.game-block-one__waiter-item_first {
+  -webkit-animation: scale-size 1.5s ease-out 0s infinite alternate;
+          animation: scale-size 1.5s ease-out 0s infinite alternate;
+}
+.game-block-one__waiter-item_second {
+  -webkit-animation: scale-size 1.5s ease-out 0.5s infinite alternate;
+          animation: scale-size 1.5s ease-out 0.5s infinite alternate;
+}
+.game-block-one__waiter-item_third {
+  -webkit-animation: scale-size 1.5s ease-in-out 1s infinite alternate;
+          animation: scale-size 1.5s ease-in-out 1s infinite alternate;
+}
+
+@-webkit-keyframes scale-size {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.5;
+  }
+}
+
+@keyframes scale-size {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.5;
+  }
+}
 .player {
   padding: 1vh 1vw;
   margin: 1vh 5vw;

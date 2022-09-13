@@ -1,0 +1,155 @@
+.game-block-one {
+    width: 90%;
+    height: 90%;
+    padding: 1vh 1vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min(6vw, 6vh) 1fr min(6vw, 6vh);
+
+    &__scores {
+        @include font(min(3vw, 3vh), min(3.2vw, 3.2vh), 400);
+        color: #ffffff;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    &__text {
+        text-transform: capitalize;
+    }
+
+    &__wins-and-loses {
+        @include font(min(2.5vw, 2.5vh), min(2.6vw, 2.6vh), 400);
+        position: absolute;
+        left: 0;
+        bottom: max(-5vw, -5vh);
+        display: flex;
+        flex-flow: row nowrap;
+        gap: min(2vw, 2vh);
+    }
+
+    &__wins {
+        background: #31A559;
+        min-width: min(3vw, 3vh);
+        height: min(3vw, 3vh);
+        border-radius: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: min(1vw, 1vw);
+    }
+
+    &__loses {
+        background: #B13232;
+        min-width: min(3vw, 3vh);
+        height: min(3vw, 3vh);
+        border-radius: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: min(1vw, 1vw);
+    }
+
+    &__field {
+        display: grid;
+        grid-template-columns: repeat(10, minmax(3vh, 3vw));
+        grid-template-rows: repeat(10, minmax(3vh, 3vw));
+        align-self: center;
+        justify-self: center;
+    }
+
+    &__element {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding: 25%;
+        border-radius: 50%;
+        background: #8F8985;
+        position: relative;
+
+        &_rock {
+            grid-area: 1 / 1 / 5 / 5;
+        }
+        &_paper {
+            grid-area: 1 / 7 / 5 / 11;
+        }
+        &_scissors {
+            grid-area: 7 / 4 / 11 / 8;
+        }
+
+        &_center {
+            grid-area: 3 / 4 / 7 / 8;
+            position: relative;
+            left: 0;
+            top: min(1.5vh, 1.5vw);
+            padding: 0;
+            display: flex;
+            flex-flow: column nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        &_selected {
+            background-color: #E8EAEE;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: min(3vw, 3vh);
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__title-text {
+        @include font(min(6vw, 6vh), min(6.2vw, 6.2vh), 400);
+        color: #ffffff;
+    }
+
+    &__waiter {
+        width: min(9vw, 9vh);
+        height: min(6vw, 6vh);
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: flex-end;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__waiter-item {
+        width: min(2vw, 2vh);
+        height: min(2vw, 2vh);
+        background-color: #ffffff;
+
+        &_first {
+            animation: scale-size 1.5s ease-out 0s infinite alternate;
+        }
+        &_second {
+            animation: scale-size 1.5s ease-out 0.5s infinite alternate;
+        }
+        &_third {
+            animation: scale-size 1.5s ease-in-out 1s infinite alternate;
+        }
+    }
+
+}
+
+@keyframes scale-size {
+    0% {
+        scale: 1;
+    }
+
+    100% {
+        scale: 1.5;
+    }
+}

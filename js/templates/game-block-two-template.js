@@ -1,32 +1,42 @@
-const gameBlockTemplate = {
+const gameBlockTwoTemplate = {
     tag: "div",
-    cls: ["game-block", ],
+    cls: ["game-block-two", ],
     content: [
         {
             tag: "div",
-            cls: ["game-block__scores", ],
+            cls: ["game-block-two__scores", ],
             content: [
                 {
                     tag: "p",
-                    cls: ["game-block__wins", ],
+                    cls: ["game-block-two__text", ],
                 },
                 {
-                    tag: "p",
-                    cls: ["game-block__loses", ],
+                    tag: "div",
+                    cls: ["game-block-two__wins-and-loses", ],
+                    content: [
+                        {
+                            tag: "p",
+                            cls: ["game-block-two__wins", ],
+                        },
+                        {
+                            tag: "p",
+                            cls: ["game-block-two__loses", ],
+                        },
+                    ],
                 },
             ],
         },
         {
             tag: "div",
-            cls: ["game-block__field", ],
+            cls: ["game-block-two__field", ],
             content: [
                 {
                     tag: "div",
-                    cls: ["game-block__element", "game-block__element_rock", ],
+                    cls: ["game-block-two__element", "game-block-two__element_rock", ],
                     content: [
                         {
                             tag: "img",
-                            cls: ["game-block__image", "game-block__image_rock"],
+                            cls: ["game-block-two__image", "game-block-two__image_rock"],
                             attrs: {
                                 src: "img/rock.svg",
                                 alt: "Rock",
@@ -36,11 +46,11 @@ const gameBlockTemplate = {
                 },
                 {
                     tag: "div",
-                    cls: ["game-block__element", "game-block__element_paper", ],
+                    cls: ["game-block-two__element", "game-block-two__element_paper", ],
                     content: [
                         {
                             tag: "img",
-                            cls: ["game-block__image", "game-block__image_paper"],
+                            cls: ["game-block-two__image", "game-block-two__image_paper"],
                             attrs: {
                                 src: "img/paper.svg",
                                 alt: "Paper",
@@ -50,28 +60,16 @@ const gameBlockTemplate = {
                 },
                 {
                     tag: "div",
-                    cls: ["game-block__button", ],
-                    attrs: {
-                        href: "#",
-                    },
-                    content: [
-                        {
-                            tag: "img",
-                            cls: ["game-block__image", "game-block__image_play", ],
-                            attrs: {
-                                src: "img/ui/play.svg",
-                                alt: "Play",
-                            },
-                        },
-                    ],
+                    cls: ["game-block-two__element", "game-block-two__element_center", ],
+                    content: [spinnerTemplate, ],
                 },
                 {
                     tag: "div",
-                    cls: ["game-block__element", "game-block__element_scissors", ],
+                    cls: ["game-block-two__element", "game-block-two__element_scissors", ],
                     content: [
                         {
                             tag: "img",
-                            cls: ["game-block__image", "game-block__image_scissors"],
+                            cls: ["game-block-two__image", "game-block-two__image_scissors"],
                             attrs: {
                                 src: "img/scissors.svg",
                                 alt: "Scissors",
@@ -83,7 +81,7 @@ const gameBlockTemplate = {
         },
         {
             tag: "h2",
-            cls: ["game-block__title", ],
+            cls: ["game-block-two__title", ],
             content: ["Title"],
         },
     ],

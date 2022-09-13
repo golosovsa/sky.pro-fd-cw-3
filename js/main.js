@@ -4,11 +4,7 @@ window.application = {
     user: undefined,
     enemy: undefined,
     page: new Page(idle, () => { 
-        window.application.renderScreen("lobby");
-
-        window.application.dao.playerList.getAll().then((players) => {
-            window.application.blocks["lobby-block-one"].updatePlayers(players.data);
-        });
+        window.application.renderScreen("game");
     }),
     
     dao: {
@@ -28,6 +24,8 @@ window.application = {
         "login-block-two": new LoginBlockTwo(idle),
         "lobby-block-one": new LobbyBlockOne(idle),
         "lobby-block-two": new LobbyBlockTwo(idle),
+        "game-block-one": new GameBlockOne(idle),
+        "game-block-two": new GameBlockTwo(idle),
     },
     screens: {
         rules: function() {
@@ -65,7 +63,7 @@ window.application = {
         },
 
         lobby: function() {
-            const page = window.application.page
+            const page = window.application.page;
             const menu = page.menu;
 
             menu.active("lobby");
@@ -73,6 +71,17 @@ window.application = {
 
             window.application.renderBlock("lobby-block-one", page.firstBlock);
             window.application.renderBlock("lobby-block-two", page.secondBlock);
+        },
+
+        game: function() {
+            const page = window.application.page;
+            const menu = page.menu;
+
+            menu.active("start");
+            menu.enable("lobby").enable("start");
+
+            window.application.renderBlock("game-block-one", page.firstBlock);
+            window.application.renderBlock("game-block-two", page.secondBlock);
         }
     },
     renderScreen: function(screenName) {
