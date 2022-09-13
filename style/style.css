@@ -538,7 +538,7 @@
 .player {
   padding: 1vh 1vw;
   margin: 1vh 5vw;
-  background-color: #8F8985;
+  background-color: #ffffff;
   border-radius: min(2vh, 2vw);
   display: flex;
   flex-flow: row nowrap;
@@ -546,6 +546,7 @@
   align-content: center;
   justify-content: flex-start;
   gap: min(2vh, 2vw);
+  transition: background-color 0.25s linear;
 }
 .player__logo {
   width: min(8vh, 8vw);
@@ -587,18 +588,19 @@
 }
 .player__info {
   padding: min(0.5vh, 0.5vw);
-  background-color: #E8EAEE;
   border-radius: 50%;
 }
 .player__info_wins {
   position: absolute;
   left: max(-1vh, -1vw);
   top: 0;
+  color: green;
 }
 .player__info_loses {
   position: absolute;
   left: max(-1vh, -1vw);
   bottom: 0;
+  color: red;
 }
 .player__login {
   font-family: "Roboto";
@@ -616,10 +618,11 @@
 
 .player-detailed {
   width: max(40vh, 40vw);
+  height: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 1vh;
 }
@@ -657,8 +660,8 @@
 }
 .player-detailed__stats {
   display: grid;
-  grid-template-columns: repeat(10, minmax(1.5vh, 1.5vw));
-  grid-template-rows: repeat(10, minmax(1.5vh, 1.5vw));
+  grid-template-columns: repeat(10, minmax(1.7vh, 1.7vw));
+  grid-template-rows: repeat(10, minmax(1.7vh, 1.7vw));
 }
 .player-detailed__element {
   display: flex;
@@ -682,22 +685,23 @@
 }
 .player-detailed__counter {
   font-family: "Roboto";
-  font-size: min(4vw, 4vh);
-  line-height: min(4.2vw, 4.2vh);
+  font-size: min(3vw, 3vh);
+  line-height: min(3.2vw, 3.2vh);
   font-weight: 400;
-  width: min(5vw, 5vh);
-  height: min(5vw, 5vh);
+  width: min(4vw, 4vh);
+  height: min(4vw, 4vh);
   border-radius: 50%;
-  background-color: green;
+  background-color: #2C7AF0;
   display: flex;
   position: absolute;
-  right: 0;
+  right: max(-1.5vw, -1.5vh);
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
+
 .spinner {
   -webkit-animation: rotate 2s linear infinite;
           animation: rotate 2s linear infinite;
@@ -782,7 +786,7 @@
 }
 .page__main_one-column-two-rows {
   grid-template-columns: 1fr;
-  grid-template-rows: 40vh 40vh;
+  grid-template-rows: 45vh 45vh;
 }
 .page__main_two-columns-one-row {
   grid-template-columns: 1fr 1fr;

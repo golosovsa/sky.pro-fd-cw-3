@@ -1,7 +1,7 @@
 .player {
     padding: 1vh 1vw;
     margin: 1vh 5vw;
-    background-color: #8F8985;
+    background-color: #ffffff;
     border-radius: min(2vh, 2vw);
     display: flex;
     flex-flow: row nowrap;
@@ -9,6 +9,7 @@
     align-content: center;
     justify-content: flex-start;
     gap: min(2vh, 2vw);
+    transition: background-color 0.25s linear;
 
     &__logo {
         width: min(8vh, 8vw);
@@ -46,19 +47,23 @@
 
     &__info {
         padding: min(0.5vh, 0.5vw);
-        background-color: #E8EAEE;
+        // background-color: #E8EAEE;
         border-radius: 50%;
 
         &_wins {
             position: absolute;
             left: max(-1vh, -1vw);
             top: 0;
+
+            color: green;
         }
 
         &_loses {
             position: absolute;
             left: max(-1vh, -1vw);
             bottom: 0;
+
+            color: red;
         }
     }
 

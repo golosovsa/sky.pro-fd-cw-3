@@ -1,9 +1,11 @@
 .player-detailed {
     width: max(40vh, 40vw);
+    height: 100%;
+
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 1vh;
 
@@ -40,8 +42,8 @@
 
     &__stats {
         display: grid;
-        grid-template-columns: repeat(10, minmax(1.5vh, 1.5vw));
-        grid-template-rows: repeat(10, minmax(1.5vh, 1.5vw));
+        grid-template-columns: repeat(10, minmax(1.7vh, 1.7vw));
+        grid-template-rows: repeat(10, minmax(1.7vh, 1.7vw));
     }
 
     &__element {
@@ -67,30 +69,19 @@
     }
 
     &__counter {
-        @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
-        width: min(5vw, 5vh);
-        height: min(5vw, 5vh);
+        @include font(min(3vw, 3vh), min(3.2vw, 3.2vh), 400);
+        width: min(4vw, 4vh);
+        height: min(4vw, 4vh);
         border-radius: 50%;
-        background-color: green;
+        background-color: #2C7AF0;
         display: flex;
         position: absolute;
-        right: 0;
+        right: max(-1.5vw, -1.5vh);
         bottom: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
 
-        &_rock {
-
-        }
-
-        &_paper {
-
-        }
-
-        &_scissors {
-
-        }
     }
 }
