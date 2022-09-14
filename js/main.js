@@ -1,10 +1,60 @@
 window.application = {
     login: undefined,
     token: undefined,
-    user: undefined,
-    enemy: undefined,
-    page: new Page(idle, () => { 
-        window.application.renderScreen("game");
+    game: undefined,
+    page: new Page(idle, () => {
+
+        // ping server
+        window.application.dao.ping.getOne().then(data => {
+            if (data.status !== "ok") {
+                window.application.page.showModal("error");
+            }
+        });
+
+        window.application.login = window.localStorage.getItem("login") || "grm";
+        window.application.token = window.localStorage.getItem("token") || "grm";
+
+        if (!window.application.login) {
+            window.application.renderScreen("rules");
+            return;
+        }
+
+        if (!window.application.token) {
+            window.application.dao.login.getOne({login: window.application.login}).then(data => {
+                if (data.status !== "ok" || data.data.status !== "ok") {
+                    window.application.login = null;
+                } else {
+                    window.application.token = data.data.token;
+                }
+                window.application.renderScreen("rules");
+            });
+            return;
+        }
+
+        window.application.dao.playerStatus.getOne({token: window.application.token}).then(data => {
+            if (data.status !== "ok" || data.data.status !== "ok") {
+                window.application.dao.login.getOne({login: window.application.login}).then(data => {
+                    if (data.status !== "ok" || data.data.status !== "ok") {
+                        window.application.login = null;
+                    } else {
+                        window.application.token = data.data.token;
+                    }
+                    window.application.renderScreen("rules");
+                });
+            } else {
+                
+                if (data.data["player-status"].status === "lobby") {
+                    window.application.renderScreen("rules"); 
+                    return;
+                }
+
+                if (data.data["player-status"].status === "game") {
+                    window.application.game = data.data["player-status"].game.id;
+                    window.application.renderScreen("game");
+                    return;
+                }
+            }
+        });
     }),
     
     dao: {
@@ -94,16 +144,65 @@ window.application = {
 }
 
 function idle({from, to, data=undefined}) {
-    console.log(`from = ${from}, to = ${to}, data = ${data}`);
+    
+    console.log("from", from, "to", to, "data", data);
 
-    if (to === "rules") {
-        window.application.blocks["game-block-one"].activateField();
-        window.application.blocks["game-block-one"].showSpinner();
-        window.application.blocks["game-block-one"].setTitle("Vasya");
-        window.application.blocks["game-block-one"].setScores(5, 15);
-        window.application.blocks["game-block-one"].hideWaiter();
-    } else {
-        window.application.blocks["game-block-one"].selectScissors();
-        window.application.blocks["game-block-one"].hideSpinner();
+    /**
+     * modals
+     */
+
+    if (from === "modal" && to === "reload") {
+        if (to === "reload") {
+            document.location.reload();
+            return;
+        }
+
+        return;
+    }
+
+    /**
+     * menu 
+     */
+
+    if (from === "menu") {
+        if (to === "rules") {
+            window.application.renderScreen("rules");
+            return;
+        }
+
+        if (to === "login") {
+            window.application.renderScreen("login");
+            return;
+        }
+
+        if (to === "lobby") {
+            window.application.renderScreen("lobby");
+            return;
+        }
+
+        if (to === "start") {
+            window.application.renderScreen("game");
+            return;
+        }
+
+        return;
+    }
+
+    /**
+     * rules
+     */
+
+    if (from === "rules") {
+        if (to === "lobby") {
+            window.application.renderScreen("lobby");
+            return;
+        }
+
+        if (to === "start") {
+            window.application.renderScreen("game");
+            return;
+        }
+
+        return;
     }
 }

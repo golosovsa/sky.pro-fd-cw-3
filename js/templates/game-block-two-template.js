@@ -64,7 +64,7 @@ const gameBlockTwoTemplate = {
                     content: [
                         {
                             tag: "a",
-                            cls: ["game-block-two__button", "game-block-two__button_go", ],
+                            cls: ["game-block-two__button", "game-block-two__button_go", "game-block-two__button_disabled", ],
                             attrs: {
                                 href: "#",
                             },

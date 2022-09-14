@@ -5,8 +5,7 @@ class BaseDAO {
     }
 
     async _get(params) {
-        const parameters = new URLSearchParams(params).toString();
-        const fullHandle = this.uri + '?' + parameters;
+        const fullHandle = params ? this.uri + '?' + new URLSearchParams(params).toString() : this.uri;
 
         const response = await fetch(fullHandle, {
             method: "GET",
@@ -18,7 +17,7 @@ class BaseDAO {
         return data;
     }
 
-    async getAll(params) {
+    async getAll(params=undefined) {
         try {
             const data = await this._get(params);
             const models = (this.model !== undefined) ? data.map(item => new this.model(item)) : data;
@@ -34,7 +33,7 @@ class BaseDAO {
         }
     }
 
-    async getOne() {
+    async getOne(params=undefined) {
         try {
             const data = await this._get(params);
             const model = (this.model !== undefined) ? new this.model(data) : data;

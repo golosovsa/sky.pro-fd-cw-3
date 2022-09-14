@@ -4,6 +4,7 @@
 @import "page/header";
 @import "page/menu";
 @import "page/footer-info";
+@import "page/modal";
 
 @import "screens/rules";
 @import "screens/login";
@@ -55,5 +56,13 @@
 
     &__title {
         @include font(min(4vw, 4vh), min(4.2vw, 4.2vh), 400);
+    }
+
+    &__modals {
+        display: none;
+    }
+
+    &_disable {
+        pointer-events: none;
     }
 }

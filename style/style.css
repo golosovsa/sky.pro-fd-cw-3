@@ -189,6 +189,72 @@
   cursor: pointer;
 }
 
+.modal {
+  position: fixed;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.7);
+  left: 0;
+  top: 30vh;
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1050;
+}
+.modal__title {
+  font-family: "Roboto";
+  font-size: min(7.2vw, 7.2vh);
+  line-height: min(7.2vw, 7.2vh);
+  font-weight: 500;
+  color: #ffffff;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+.modal__icon {
+  width: min(16vw, 16vh);
+  height: min(10vw, 10vh);
+  padding: min(1vw, 1vh);
+}
+.modal__buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+.modal__button, .modal__button:link, .modal__button:visited {
+  font-family: "Roboto";
+  font-size: min(5vw, 5vh);
+  line-height: min(5.2vw, 5.2vh);
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  background: #2C7AF0;
+  border-radius: 1vh;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  padding: 1vh 1vw;
+  align-self: center;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0;
+  bottom: min(1vw, 1vh);
+  width: 25vw;
+}
+.modal__button:hover, .modal__button:link:hover, .modal__button:visited:hover {
+  box-shadow: 0 0 0.5vw 0.5vh rgba(255, 255, 255, 0.6);
+  transform: scale(1.03);
+}
+
 .rules-block-one {
   display: grid;
   grid-template-columns: repeat(10, minmax(3.2vh, 3.2vw));
@@ -757,7 +823,6 @@
   padding: 25%;
   border-radius: 50%;
   background: #8F8985;
-  position: relative;
   transition: background-color 0.3s linear;
 }
 .game-block-two__element_rock {
@@ -770,10 +835,7 @@
   grid-area: 7/4/11/8;
 }
 .game-block-two__element_center {
-  grid-area: 3/4/7/8;
-  position: relative;
-  left: 0;
-  top: min(3vh, 3vw);
+  grid-area: 5/4/7/8;
   padding: 0;
   display: flex;
   flex-flow: column nowrap;
@@ -808,8 +870,8 @@
 }
 .game-block-two__button, .game-block-two__button:link, .game-block-two__button:visited {
   font-family: "Roboto";
-  font-size: min(7vw, 7vh);
-  line-height: min(7.2vw, 7.2vh);
+  font-size: min(5vw, 5vh);
+  line-height: min(5.2vw, 5.2vh);
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
@@ -817,15 +879,25 @@
   background: #2C7AF0;
   border-radius: 1vh;
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 1vh 1vw;
   align-self: center;
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 0;
+  bottom: min(1vw, 1vh);
 }
 .game-block-two__button:hover, .game-block-two__button:link:hover, .game-block-two__button:visited:hover {
   box-shadow: 0 0 0.5vw 0.5vh rgba(0, 0, 0, 0.6);
   transform: scale(1.03);
+}
+.game-block-two__button_disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.2;
 }
 
 @-webkit-keyframes scale-size {
@@ -1118,4 +1190,10 @@
   font-size: min(4vw, 4vh);
   line-height: min(4.2vw, 4.2vh);
   font-weight: 400;
+}
+.page__modals {
+  display: none;
+}
+.page_disable {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */

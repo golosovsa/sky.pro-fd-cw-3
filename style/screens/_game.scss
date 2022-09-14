@@ -228,7 +228,6 @@
         padding: 25%;
         border-radius: 50%;
         background: #8F8985;
-        position: relative;
         transition: background-color 0.3s linear;
 
         &_rock {
@@ -242,10 +241,7 @@
         }
 
         &_center {
-            grid-area: 3 / 4 / 7 / 8;
-            position: relative;
-            left: 0;
-            top: min(3vh, 3vw);
+            grid-area: 5 / 4 / 7 / 8;
             padding: 0;
             display: flex;
             flex-flow: column nowrap;
@@ -285,7 +281,7 @@
     &__button,
     &__button:link,
     &__button:visited {
-        @include font(min(7vw, 7vh), min(7.2vw, 7.2vh), 400);
+        @include font(min(5vw, 5vh), min(5.2vw, 5.2vh), 400);
         text-decoration: none;
         text-transform: uppercase;
         color: #ffffff;
@@ -293,13 +289,30 @@
         border-radius: 1vh;
         transition: box-shadow 0.3s ease-in-out, 
                     transform 0.3s ease-in-out;
-        width: fit-content;
         padding: 1vh 1vw;
         align-self: center;
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        left: 0;
+        bottom: min(1vw, 1vh);
 
         &:hover {
             box-shadow: 0 0 0.5vw 0.5vh rgba($color: #000000, $alpha: 0.6);
             transform: scale(1.03);
+        }
+
+    }
+
+    &__button {
+        &_disabled {
+            pointer-events: none;
+            cursor: default;
+            opacity: 0.2;
         }
     }
 }

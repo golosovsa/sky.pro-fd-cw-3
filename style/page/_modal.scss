@@ -1,0 +1,70 @@
+.modal {
+    position: fixed;
+    box-sizing: border-box;
+    background-color: rgba(#000000, 0.7);
+    left: 0;
+    top: 30vh;
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1050;
+
+    &__title {
+        @include font(min(7.2vw, 7.2vh), min(7.2vw, 7.2vh), 500);
+        color: #ffffff;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    &__icon {
+        width: min(16vw, 16vh);
+        height: min(10vw, 10vh);
+        padding: min(1vw, 1vh);
+    }
+
+    &__buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 5vw;
+    }
+
+    &__button,
+    &__button:link,
+    &__button:visited {
+        @include font(min(5vw, 5vh), min(5.2vw, 5.2vh), 400);
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: #ffffff;
+        background: #2C7AF0;
+        border-radius: 1vh;
+        transition: box-shadow 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out;
+        padding: 1vh 1vw;
+        align-self: center;
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        left: 0;
+        bottom: min(1vw, 1vh);
+
+        width: 25vw;
+
+        &:hover {
+            box-shadow: 0 0 0.5vw 0.5vh rgba($color: #ffffff, $alpha: 0.6);
+            transform: scale(1.03);
+        }
+
+    }
+}
