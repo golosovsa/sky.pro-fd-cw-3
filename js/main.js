@@ -95,23 +95,15 @@ window.application = {
 
 function idle({from, to, data=undefined}) {
     console.log(`from = ${from}, to = ${to}, data = ${data}`);
-    switch (from) {
-        case "lobby":
-            
-            switch (to) {
-                case "lobby":
-                    
-                    window.application.blocks["lobby-block-two"].showPlayer(data);
 
-                    break;
-            
-                default:
-                    break;
-            }
-
-            break;
-    
-        default:
-            break;
+    if (to === "rules") {
+        window.application.blocks["game-block-one"].activateField();
+        window.application.blocks["game-block-one"].showSpinner();
+        window.application.blocks["game-block-one"].setTitle("Vasya");
+        window.application.blocks["game-block-one"].setScores(5, 15);
+        window.application.blocks["game-block-one"].hideWaiter();
+    } else {
+        window.application.blocks["game-block-one"].selectScissors();
+        window.application.blocks["game-block-one"].hideSpinner();
     }
 }

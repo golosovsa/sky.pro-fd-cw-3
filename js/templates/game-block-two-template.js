@@ -61,7 +61,16 @@ const gameBlockTwoTemplate = {
                 {
                     tag: "div",
                     cls: ["game-block-two__element", "game-block-two__element_center", ],
-                    content: [spinnerTemplate, ],
+                    content: [
+                        {
+                            tag: "a",
+                            cls: ["game-block-two__button", "game-block-two__button_go", ],
+                            attrs: {
+                                href: "#",
+                            },
+                            content: ["Go!", ],
+                        },
+                    ],
                 },
                 {
                     tag: "div",

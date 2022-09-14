@@ -4,7 +4,7 @@
     padding: 1vh 1vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: min(6vw, 6vh) 1fr min(6vw, 6vh);
+    grid-template-rows: 20% 50% 30%;
 
     &__scores {
         @include font(min(3vw, 3vh), min(3.2vw, 3.2vh), 400);
@@ -22,7 +22,7 @@
         @include font(min(2.5vw, 2.5vh), min(2.6vw, 2.6vh), 400);
         position: absolute;
         left: 0;
-        bottom: max(-5vw, -5vh);
+        top: min(4.5vw, 4.5vh);
         display: flex;
         flex-flow: row nowrap;
         gap: min(2vw, 2vh);
@@ -56,10 +56,16 @@
 
     &__field {
         display: grid;
-        grid-template-columns: repeat(10, minmax(3vh, 3vw));
-        grid-template-rows: repeat(10, minmax(3vh, 3vw));
+        grid-template-columns: repeat(10, minmax(2.5vh, 2.5vw));
+        grid-template-rows: repeat(10, minmax(2.5vh, 2.5vw));
         align-self: center;
         justify-self: center;
+        opacity: 0.2;
+        transition: opacity 2s linear;
+
+        &_active {
+            opacity: 1;
+        }
     }
 
     &__element {
@@ -72,6 +78,7 @@
         border-radius: 50%;
         background: #8F8985;
         position: relative;
+        transition: background-color 1s linear;
 
         &_rock {
             grid-area: 1 / 1 / 5 / 5;
@@ -124,6 +131,10 @@
         align-content: flex-end;
         align-items: center;
         justify-content: space-between;
+
+        &_hidden {
+            display: none;
+        }
     }
 
     &__waiter-item {
@@ -142,6 +153,155 @@
         }
     }
 
+}
+
+.game-block-two {
+    width: 90%;
+    height: 90%;
+    padding: 1vh 1vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 50% 30%;
+
+    &__scores {
+        @include font(min(3vw, 3vh), min(3.2vw, 3.2vh), 400);
+        color: #ffffff;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    &__text {
+        text-transform: capitalize;
+    }
+
+    &__wins-and-loses {
+        @include font(min(2.5vw, 2.5vh), min(2.6vw, 2.6vh), 400);
+        position: absolute;
+        left: 0;
+        top: min(4.5vw, 4.5vh);;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: min(2vw, 2vh);
+    }
+
+    &__wins {
+        background: #31A559;
+        min-width: min(3vw, 3vh);
+        height: min(3vw, 3vh);
+        border-radius: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: min(1vw, 1vw);
+    }
+
+    &__loses {
+        background: #B13232;
+        min-width: min(3vw, 3vh);
+        height: min(3vw, 3vh);
+        border-radius: 50%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        padding: min(1vw, 1vw);
+    }
+
+    &__field {
+        display: grid;
+        grid-template-columns: repeat(10, minmax(2.5vh, 2.5vw));
+        grid-template-rows: repeat(10, minmax(2.5vh, 2.5vw));
+        align-self: center;
+        justify-self: center;
+    }
+
+    &__element {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: stretch;
+        padding: 25%;
+        border-radius: 50%;
+        background: #8F8985;
+        position: relative;
+        transition: background-color 0.3s linear;
+
+        &_rock {
+            grid-area: 1 / 1 / 5 / 5;
+        }
+        &_paper {
+            grid-area: 1 / 7 / 5 / 11;
+        }
+        &_scissors {
+            grid-area: 7 / 4 / 11 / 8;
+        }
+
+        &_center {
+            grid-area: 3 / 4 / 7 / 8;
+            position: relative;
+            left: 0;
+            top: min(3vh, 3vw);
+            padding: 0;
+            display: flex;
+            flex-flow: column nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent !important;
+            }
+        }
+
+        &_selected {
+            background-color: #E8EAEE;
+        }
+
+        &:hover {
+            background-color: #E8EAEE;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: min(3vw, 3vh);
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__title {
+        @include font(min(6vw, 6vh), min(6.2vw, 6.2vh), 400);
+        color: #ffffff;
+    }
+
+    &__button,
+    &__button:link,
+    &__button:visited {
+        @include font(min(7vw, 7vh), min(7.2vw, 7.2vh), 400);
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: #2C7AF0;
+        border-radius: 1vh;
+        transition: box-shadow 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out;
+        width: fit-content;
+        padding: 1vh 1vw;
+        align-self: center;
+
+        &:hover {
+            box-shadow: 0 0 0.5vw 0.5vh rgba($color: #000000, $alpha: 0.6);
+            transform: scale(1.03);
+        }
+    }
 }
 
 @keyframes scale-size {
