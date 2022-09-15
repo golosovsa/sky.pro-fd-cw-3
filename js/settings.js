@@ -1,1 +1,1 @@
-const DEVELOPMENT = true;
+const DEVELOPMENT = false;

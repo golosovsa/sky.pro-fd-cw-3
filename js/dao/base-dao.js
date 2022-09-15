@@ -20,7 +20,7 @@ class BaseDAO {
     async getAll(params=undefined) {
         try {
             const data = await this._get(params);
-            const models = (this.model !== undefined) ? data.map(item => new this.model(item)) : data;
+            const models = (this.model !== undefined) ? data.list.map(item => new this.model(item)) : data.list;
             return {
                 status: "ok",
                 data: models,

@@ -28,7 +28,7 @@ const gameBlockTwoTemplate = {
         },
         {
             tag: "div",
-            cls: ["game-block-two__field", ],
+            cls: ["game-block-two__field", "game-block-two__field_disabled", ],
             content: [
                 {
                     tag: "div",

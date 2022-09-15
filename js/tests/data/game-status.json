@@ -1,7 +1,7 @@
 {
     "status": "ok",
     "game-status": {
-      "status": "waiting-for-start",
+      "status": "waiting-for-your-move",
       "enemy": {
           "login": "ВладБумага",
           "wins": 47,

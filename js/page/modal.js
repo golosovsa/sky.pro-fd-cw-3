@@ -19,14 +19,18 @@ class BaseModal {
             })
             this.buttonsContainer.appendChild(buttonElement);
         }
+
+        this.isShown = false;
     }
 
     show() {
         document.body.appendChild(this.element);
+        this.isShown = true;
     }
 
     hide() {
         document.body.removeChild(this.element);
+        this.isShown = false;
     }
 }
 

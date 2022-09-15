@@ -217,6 +217,12 @@
         grid-template-rows: repeat(10, minmax(2.5vh, 2.5vw));
         align-self: center;
         justify-self: center;
+
+        &_disabled {
+            pointer-events: none;
+            cursor: default;
+            opacity: 0.2;
+        }
     }
 
     &__element {

@@ -109,7 +109,7 @@ class GameBlockTwo extends BaseScreen {
     constructor(userCallBack) {
         super(gameBlockTwoTemplate, userCallBack, "game");
 
-        this.addButton(".game-block-two__button_go", "go");
+        this.addButton(".game-block-two__button_go", "game");
 
         this.text = this.element.querySelector(".game-block-two__text");
         this.text.textContent = "You score";
@@ -117,6 +117,7 @@ class GameBlockTwo extends BaseScreen {
         this.wins = this.element.querySelector(".game-block-two__wins");
         this.loses = this.element.querySelector(".game-block-two__loses");
         this.title = this.element.querySelector(".game-block-two__title");
+        this.field = this.element.querySelector(".game-block-two__field");
 
         this.items = {
             rock: this.element.querySelector(".game-block-two__element_rock"),
@@ -148,7 +149,7 @@ class GameBlockTwo extends BaseScreen {
         this.items.rock.classList.add("game-block-two__element_selected");
         this.items.paper.classList.remove("game-block-two__element_selected");
         this.items.scissors.classList.remove("game-block-two__element_selected");
-        this.buttons.go.classList.remove("game-block-two__button_disabled");
+        this.buttons.game.classList.remove("game-block-two__button_disabled");
         this.selectedItem = "rock";
     }
 
@@ -156,7 +157,7 @@ class GameBlockTwo extends BaseScreen {
         this.items.rock.classList.remove("game-block-two__element_selected");
         this.items.paper.classList.add("game-block-two__element_selected");
         this.items.scissors.classList.remove("game-block-two__element_selected");
-        this.buttons.go.classList.remove("game-block-two__button_disabled");
+        this.buttons.game.classList.remove("game-block-two__button_disabled");
         this.selectedItem = "paper";
     }
 
@@ -164,11 +165,46 @@ class GameBlockTwo extends BaseScreen {
         this.items.rock.classList.remove("game-block-two__element_selected");
         this.items.paper.classList.remove("game-block-two__element_selected");
         this.items.scissors.classList.add("game-block-two__element_selected");
-        this.buttons.go.classList.remove("game-block-two__button_disabled");
+        this.buttons.game.classList.remove("game-block-two__button_disabled");
         this.selectedItem = "scissors";
     }
 
     get selected() {
         return this.selectedItem;
+    }
+
+    hideGoButton() {
+        this.buttons.game.classList.add("game-block-two__button_disabled");
+    }
+
+    showGoButton() {
+        this.buttons.game.classList.remove("game-block-two__button_disabled");
+    }
+
+    reset(title, wins, loses) {
+        this.setTitle(title);
+        this.setScores(wins, loses)
+        // this.items.rock.classList.remove("game-block-two__element_selected");
+        // this.items.paper.classList.remove("game-block-two__element_selected");
+        // this.items.scissors.classList.remove("game-block-two__element_selected");
+        if (!this.selected) this.hideGoButton();
+    }
+
+    hardReset() {
+        this.setTitle("");
+        this.setScores("??", "??")
+        this.items.rock.classList.remove("game-block-two__element_selected");
+        this.items.paper.classList.remove("game-block-two__element_selected");
+        this.items.scissors.classList.remove("game-block-two__element_selected");
+        this.selectedItem = undefined;
+        this.hideGoButton();
+    }
+
+    disableItems() {
+        this.field.classList.add("game-block-two__field_disabled");
+    }
+
+    enableItems() {
+        this.field.classList.remove("game-block-two__field_disabled");
     }
 }

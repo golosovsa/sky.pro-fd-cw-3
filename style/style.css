@@ -814,6 +814,11 @@
   align-self: center;
   justify-self: center;
 }
+.game-block-two__field_disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.2;
+}
 .game-block-two__element {
   display: flex;
   flex-flow: column nowrap;

@@ -62,8 +62,8 @@ class Page {
 
     enable() {
         this.main.classList.remove("page_disable");
-        this.menu.classList.remove("page_disable");
-        this.footerInfo.classList.remove("page_disable");
+        this.menu.element.classList.remove("page_disable");
+        this.footerInfo.element.classList.remove("page_disable");
     }
 
     showModal(modal) {
@@ -71,8 +71,13 @@ class Page {
         this.disable();
     }
 
-    hideModal(modal) {
-        this.modals[modal].hide();
+    hideAllModals(modal) {
+        for (const modalKey in this.modals) {
+            const modal = this.modals[modalKey];
+            if (modal.isShown) {
+                modal.hide();
+            }
+        } 
         this.enable();
     }
 }

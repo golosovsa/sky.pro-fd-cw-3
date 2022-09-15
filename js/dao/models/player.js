@@ -39,6 +39,8 @@ class Player {
 
         this.detailedTitle = this.elementDetailedPlayer.querySelector(".player-detailed__title");
         this.detailedTitle.textContent = login;
+
+        this.you = Boolean(you);
     }
 
     get block() {
