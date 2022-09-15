@@ -16,6 +16,7 @@ class Page {
             win: new WinModal(userCallBack),
             lose: new LoseModal(userCallBack),
             draw: new DrawModal(userCallBack),
+            wrongLogin: new LoginModal(userCallBack),
         };
     }
 

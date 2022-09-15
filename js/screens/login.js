@@ -11,6 +11,15 @@ class LoginBlockTwo extends BaseScreen {
         this.form = this.element.querySelector(".login-block-two__form");
         this.input = this.form.querySelector(".login-block-two__form-input_login");
         this.spinner = this.form.querySelector(".spinner__container");
+        this.login = this.form.querySelector(".login-block-two__form-input_login");
+    }
+
+    get value() {
+        return this.login.value;
+    }
+
+    set value(login) {
+        this.login.value = login;
     }
 
     hideGoButton() {

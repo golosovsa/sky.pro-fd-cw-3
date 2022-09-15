@@ -11,8 +11,8 @@ window.application = {
             }
         });
 
-        window.application.login = window.localStorage.getItem("login") || "grm";
-        window.application.token = window.localStorage.getItem("token") || "grm";
+        window.application.login = window.localStorage.getItem("login");
+        window.application.token = window.localStorage.getItem("token");
 
         if (!window.application.login) {
             window.application.renderScreen("rules");
@@ -85,7 +85,7 @@ window.application = {
 
             menu.active("rules");
 
-            if (token === undefined) {
+            if (!token) {
                 menu.disable("lobby").disable("start");
             } else {
                 menu.enable("lobby").enable("start");
@@ -102,10 +102,14 @@ window.application = {
 
             menu.active("login");
 
-            if (token === undefined) {
+            if (!token) {
                 menu.disable("lobby").disable("start");
             } else {
                 menu.enable("lobby").enable("start");
+            }
+
+            if (window.application.login) {
+                window.application.blocks["login-block-two"].value = window.application.login;
             }
 
             window.application.renderBlock("login-block-one", page.firstBlock);
@@ -134,6 +138,7 @@ window.application = {
             window.application.renderBlock("game-block-two", page.secondBlock);
         }
     },
+    timers: [],
     renderScreen: function(screenName) {
         this.screens[screenName]();
     },
@@ -141,6 +146,8 @@ window.application = {
     renderBlock: function(blockName, container) {
         container.replaceChildren(this.blocks[blockName].block)
     },
+
+    
 }
 
 function idle({from, to, data=undefined}) {
@@ -193,10 +200,58 @@ function idle({from, to, data=undefined}) {
      */
 
     if (from === "rules") {
+
+        if (!window.application.token) {
+            window.application.renderScreen("login");
+            return;
+        }
+
         if (to === "lobby") {
             window.application.renderScreen("lobby");
             return;
         }
+
+        if (to === "start") {
+            window.application.renderScreen("game");
+            return;
+        }
+
+        return;
+    }
+
+    /**
+     * login
+     */
+
+    if (from === "login") {
+        
+        if (to === "login") {
+            window.application.dao.login.getOne({
+                login: window.application.blocks["login-block-two"].value, 
+            }).then(data => {
+                console.log(data);
+                if (data.status !== "ok" || data.data.status !== "ok") {
+                    window.application.page.showModal("wrongLogin");
+                    window.application.login = undefined;
+                    window.application.token = undefined;
+                    return;
+                }
+                window.application.login = window.application.blocks["login-block-two"].value;
+                window.application.token = data.data.token;
+                window.localStorage.setItem("login", window.application.login);
+                window.localStorage.setItem("token", window.application.token);
+                window.application.renderScreen("lobby");
+            })
+        }
+
+        return;
+    }
+
+    /**
+     * lobby
+     */
+
+    if (from === "lobby") {
 
         if (to === "start") {
             window.application.renderScreen("game");

@@ -78,3 +78,15 @@ class DrawModal extends BaseModal {
         }, userCallBack);
     }
 }
+
+class LoginModal extends BaseModal {
+    constructor(userCallBack) {
+        super({
+            text: "Wrong login. Try another.", 
+            iconTemplate: modalErrorIconTemplate,
+            buttons: {
+                login: "login",
+            },
+        }, userCallBack);
+    }
+}
